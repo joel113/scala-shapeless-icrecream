@@ -4,14 +4,11 @@ import shapeless._
 import shapeless.ops.hlist
 import shapeless.labelled.{field, FieldType}
 
-object Main {
+object Icecream {
 
   case class IceCreamV1(name: String, numCherries: Int, inCone: Boolean)
-
   case class IceCreamV2a(name: String, inCone: Boolean)
-
   case class IceCreamV2b(name: String, inCone: Boolean, numCherries: Int)
-
   case class IceCreamV2c(name: String, inCone: Boolean, numCherries: Int, numWaffles: Int)
 
   trait Migration[A, B] {
@@ -30,6 +27,8 @@ object Main {
     }
 
   implicit val hnilMonoid: Monoid[HNil] = createMonoid[HNil](HNil)((x, y) => HNil)
+
+  implicit val intMonoid: Monoid[Int] = createMonoid[Int](0)((x, y) => x + y)
 
   implicit def emptyHList[K <: Symbol, H, T <: HList](
      implicit
