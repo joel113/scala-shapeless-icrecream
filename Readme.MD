@@ -16,56 +16,101 @@ https://www.tobyhobson.com/posts/shapeless/
 
 http://caryrobbins.com/dev/merging-case-classes/
 
+https://stackoverflow.com/questions/31681784/using-shapeless-scala-to-merge-the-fields-of-two-different-case-classes
+
+https://jto.github.io/articles/getting-started-with-shapeless/
+
+https://www.baeldung.com/scala/generic-programming
+
 ## Logs
 
 ```
-[info] /Users/joel/src/scala-shapeless-icecream/src/main/scala/Icecream.scala:67:42: shapeless.this.Generic.materialize is not a valid implicit value for shapeless.Generic.Aux[Icecream.IceCreamV1,V] because:
+[info] Icecream.scala:67:42: shapeless.this.Generic.materialize is not a valid implicit value for shapeless.Generic.Aux[Icecream.IceCreamV1,V] because:
 [info] type parameters weren't correctly instantiated outside of the implicit tree: inferred type arguments [String :: Int :: Boolean :: shapeless.HNil,Nothing] do not conform to method materializeCoproduct's type parameter bounds [V <: shapeless.Coproduct,R <: shapeless.Coproduct]
 [info]   IceCreamV1("Sundae", 1, true).migrateTo[IceCreamV2c]
 [info]                                          ^
-[info] /Users/joel/src/scala-shapeless-icecream/src/main/scala/Icecream.scala:67:42: shapeless.this.LabelledGeneric.materializeCoproduct is not a valid implicit value for shapeless.LabelledGeneric.Aux[Icecream.IceCreamV1,ARepr] because:
+[info] Icecream.scala:67:42: shapeless.this.LabelledGeneric.materializeCoproduct is not a valid implicit value for shapeless.LabelledGeneric.Aux[Icecream.IceCreamV1,ARepr] because:
 [info] hasMatchingSymbol reported error: could not find implicit value for parameter gen: shapeless.Generic.Aux[Icecream.IceCreamV1,V]
 [info]   IceCreamV1("Sundae", 1, true).migrateTo[IceCreamV2c]
 [info]                                          ^
-[info] /Users/joel/src/scala-shapeless-icecream/src/main/scala/Icecream.scala:67:42: shapeless.this.Generic.materialize is not a valid implicit value for shapeless.Generic.Aux[Icecream.IceCreamV2c,V] because:
+[info] Icecream.scala:67:42: shapeless.this.Generic.materialize is not a valid implicit value for shapeless.Generic.Aux[Icecream.IceCreamV2c,V] because:
 [info] type parameters weren't correctly instantiated outside of the implicit tree: inferred type arguments [String :: Boolean :: Int :: Int :: shapeless.HNil,Nothing] do not conform to method materializeCoproduct's type parameter bounds [V <: shapeless.Coproduct,R <: shapeless.Coproduct]
 [info]   IceCreamV1("Sundae", 1, true).migrateTo[IceCreamV2c]
 [info]                                          ^
-[info] /Users/joel/src/scala-shapeless-icecream/src/main/scala/Icecream.scala:67:42: shapeless.this.LabelledGeneric.materializeCoproduct is not a valid implicit value for shapeless.LabelledGeneric.Aux[Icecream.IceCreamV2c,BRepr] because:
+[info] Icecream.scala:67:42: shapeless.this.LabelledGeneric.materializeCoproduct is not a valid implicit value for shapeless.LabelledGeneric.Aux[Icecream.IceCreamV2c,BRepr] because:
 [info] hasMatchingSymbol reported error: could not find implicit value for parameter gen: shapeless.Generic.Aux[Icecream.IceCreamV2c,V]
 [info]   IceCreamV1("Sundae", 1, true).migrateTo[IceCreamV2c]
 [info]                                          ^
-[info] /Users/joel/src/scala-shapeless-icecream/src/main/scala/Icecream.scala:67:42: hlist.this.Prepend.hnilPrepend1 is not a valid implicit value for shapeless.ops.hlist.Prepend.Aux[shapeless.labelled.FieldType[Symbol @@ String("numWaffles"),Int] :: shapeless.ops.hlist.ZipWithKeys.hnilZipWithKeys.Out,shapeless.labelled.FieldType[Symbol @@ String("name"),String] :: shapeless.labelled.FieldType[Symbol @@ String("numCherries"),Int] :: shapeless.labelled.FieldType[Symbol @@ String("inCone"),Boolean] :: shapeless.HNil,Unaligned] because:
+[info] Icecream.scala:67:42: hlist.this.Prepend.hnilPrepend1 is not a valid implicit value for shapeless.ops.hlist.Prepend.Aux[shapeless.labelled.FieldType[Symbol @@ String("numWaffles"),Int] :: shapeless.ops.hlist.ZipWithKeys.hnilZipWithKeys.Out,shapeless.labelled.FieldType[Symbol @@ String("name"),String] :: shapeless.labelled.FieldType[Symbol @@ String("numCherries"),Int] :: shapeless.labelled.FieldType[Symbol @@ String("inCone"),Boolean] :: shapeless.HNil,Unaligned] because:
 [info] typing TypeApply reported errors for the implicit tree: type arguments [shapeless.labelled.FieldType[Symbol @@ String("numWaffles"),Int] :: shapeless.ops.hlist.ZipWithKeys.hnilZipWithKeys.Out,shapeless.labelled.FieldType[Symbol @@ String("name"),String] :: shapeless.labelled.FieldType[Symbol @@ String("numCherries"),Int] :: shapeless.labelled.FieldType[Symbol @@ String("inCone"),Boolean] :: shapeless.HNil] do not conform to method hnilPrepend1's type parameter bounds [P <: shapeless.HNil,S <: shapeless.HList]
 [info]   IceCreamV1("Sundae", 1, true).migrateTo[IceCreamV2c]
 [info]                                          ^
-[info] /Users/joel/src/scala-shapeless-icecream/src/main/scala/Icecream.scala:67:42: hlist.this.Prepend.hnilPrepend0 is not a valid implicit value for shapeless.ops.hlist.Prepend.Aux[shapeless.labelled.FieldType[Symbol @@ String("numWaffles"),Int] :: shapeless.ops.hlist.ZipWithKeys.hnilZipWithKeys.Out,shapeless.labelled.FieldType[Symbol @@ String("name"),String] :: shapeless.labelled.FieldType[Symbol @@ String("numCherries"),Int] :: shapeless.labelled.FieldType[Symbol @@ String("inCone"),Boolean] :: shapeless.HNil,Unaligned] because:
+[info] Icecream.scala:67:42: hlist.this.Prepend.hnilPrepend0 is not a valid implicit value for shapeless.ops.hlist.Prepend.Aux[shapeless.labelled.FieldType[Symbol @@ String("numWaffles"),Int] :: shapeless.ops.hlist.ZipWithKeys.hnilZipWithKeys.Out,shapeless.labelled.FieldType[Symbol @@ String("name"),String] :: shapeless.labelled.FieldType[Symbol @@ String("numCherries"),Int] :: shapeless.labelled.FieldType[Symbol @@ String("inCone"),Boolean] :: shapeless.HNil,Unaligned] because:
 [info] typing TypeApply reported errors for the implicit tree: type arguments [shapeless.labelled.FieldType[Symbol @@ String("numWaffles"),Int] :: shapeless.ops.hlist.ZipWithKeys.hnilZipWithKeys.Out,shapeless.labelled.FieldType[Symbol @@ String("name"),String] :: shapeless.labelled.FieldType[Symbol @@ String("numCherries"),Int] :: shapeless.labelled.FieldType[Symbol @@ String("inCone"),Boolean] :: shapeless.HNil] do not conform to method hnilPrepend0's type parameter bounds [P <: shapeless.HList,S <: shapeless.HNil]
 [info]   IceCreamV1("Sundae", 1, true).migrateTo[IceCreamV2c]
 [info]                                          ^
-[info] /Users/joel/src/scala-shapeless-icecream/src/main/scala/Icecream.scala:67:42: hlist.this.Remove.recurse is not a valid implicit value for shapeless.ops.hlist.Remove.Aux[shapeless.labelled.FieldType[Symbol @@ String("numCherries"),Int] :: shapeless.HNil,shapeless.labelled.FieldType[Symbol @@ String("numCherries"),Int],(shapeless.labelled.FieldType[Symbol @@ String("numCherries"),Int], OutT)] because:
+[info] Icecream.scala:67:42: hlist.this.Remove.recurse is not a valid implicit value for shapeless.ops.hlist.Remove.Aux[shapeless.labelled.FieldType[Symbol @@ String("numCherries"),Int] :: shapeless.HNil,shapeless.labelled.FieldType[Symbol @@ String("numCherries"),Int],(shapeless.labelled.FieldType[Symbol @@ String("numCherries"),Int], OutT)] because:
 [info] hasMatchingSymbol reported error: could not find implicit value for parameter r: shapeless.ops.hlist.Remove.Aux[shapeless.HNil,shapeless.labelled.FieldType[Symbol @@ String("numCherries"),Int],(shapeless.labelled.FieldType[Symbol @@ String("numCherries"),Int], OutT)]
 [info]   IceCreamV1("Sundae", 1, true).migrateTo[IceCreamV2c]
 [info]                                          ^
-[info] /Users/joel/src/scala-shapeless-icecream/src/main/scala/Icecream.scala:67:42: hlist.this.Remove.recurse is not a valid implicit value for shapeless.ops.hlist.Remove.Aux[shapeless.labelled.FieldType[Symbol @@ String("numWaffles"),Int] :: shapeless.HNil,shapeless.labelled.FieldType[Symbol @@ String("numWaffles"),Int],(shapeless.labelled.FieldType[Symbol @@ String("numWaffles"),Int], R)] because:
+[info] Icecream.scala:67:42: hlist.this.Remove.recurse is not a valid implicit value for shapeless.ops.hlist.Remove.Aux[shapeless.labelled.FieldType[Symbol @@ String("numWaffles"),Int] :: shapeless.HNil,shapeless.labelled.FieldType[Symbol @@ String("numWaffles"),Int],(shapeless.labelled.FieldType[Symbol @@ String("numWaffles"),Int], R)] because:
 [info] hasMatchingSymbol reported error: could not find implicit value for parameter r: shapeless.ops.hlist.Remove.Aux[shapeless.HNil,shapeless.labelled.FieldType[Symbol @@ String("numWaffles"),Int],(shapeless.labelled.FieldType[Symbol @@ String("numWaffles"),Int], OutT)]
 [info]   IceCreamV1("Sundae", 1, true).migrateTo[IceCreamV2c]
 
 ```
+
 ## Implicit Log Investigation
+
+No idea.
 
 ## StackOverflow
 
-Scala Shapeless No Implicits Found Prepend ZipWithKeys
+https://stackoverflow.com/questions/72588264/scala-shapeless-no-implicits-found-case-class-migration-adding-new-field
 
-In order to get familiar with shapeless, I did investigate into the examples of the [shapeless-guide](https://books.underscore.io/shapeless-guide/shapeless-guide.html)[1]. I am especially interested in case class migrations. Therefore, I did dive into the case study of the case class migration section.
+Scala Shapeless No Implicits Found Case Class Migration Adding New Field
 
-Unfortunately, this copied code is not compiling as the last conversion is failing as no implicits can be found.
+In order to get familiar with shapeless, I did investigate into the examples of the [shapeless-guide](https://books.underscore.io/shapeless-guide/shapeless-guide.html). I am especially interested in case class migrations. Therefore, I did dive into the case study of the case class migration section of the [shapeless-guide](https://books.underscore.io/shapeless-guide/shapeless-guide.html).
 
-I did run the compiler with the `-Xlog-implicits` flag which gives following error message for the line where the implicit can not be found:
+Unfortunately, the code of the case class migration case study is not compiling as the last conversion where a field is added is failing as no implicits can be found.
+
+I am trying to understand the issue with the code. However, understanding the issue is quite difficult and I failed so far. Hence, i would like to ask whether somebody can give an hint.
+
+I tried also several compilers, i.e. scala 2.12, scala 2.13.
+
+I did run the compiler with the `-Xlog-implicits` flag which gives several error messages:
 
 ```
-hlist.this.Prepend.hnilPrepend0 is not a valid implicit value for shapeless.ops.hlist.Prepend.Aux[shapeless.labelled.FieldType[Symbol @@ String("numWaffles"),Int] :: shapeless.ops.hlist.ZipWithKeys.hnilZipWithKeys.Out,shapeless.labelled.FieldType[Symbol @@ String("name"),String] :: shapeless.labelled.FieldType[Symbol @@ String("numCherries"),Int] :: shapeless.labelled.FieldType[Symbol @@ String("inCone"),Boolean] :: shapeless.HNil,Unaligned]
+[info] Icecream.scala:67:42: shapeless.this.Generic.materialize is not a valid implicit value for shapeless.Generic.Aux[Icecream.IceCreamV1,V] because:
+[info] type parameters weren't correctly instantiated outside of the implicit tree: inferred type arguments [String :: Int :: Boolean :: shapeless.HNil,Nothing] do not conform to method materializeCoproduct's type parameter bounds [V <: shapeless.Coproduct,R <: shapeless.Coproduct]
+[info]   IceCreamV1("Sundae", 1, true).migrateTo[IceCreamV2c]
+[info]                                          ^
+[info] Icecream.scala:67:42: shapeless.this.LabelledGeneric.materializeCoproduct is not a valid implicit value for shapeless.LabelledGeneric.Aux[Icecream.IceCreamV1,ARepr] because:
+[info] hasMatchingSymbol reported error: could not find implicit value for parameter gen: shapeless.Generic.Aux[Icecream.IceCreamV1,V]
+[info]   IceCreamV1("Sundae", 1, true).migrateTo[IceCreamV2c]
+[info]                                          ^
+[info] Icecream.scala:67:42: shapeless.this.Generic.materialize is not a valid implicit value for shapeless.Generic.Aux[Icecream.IceCreamV2c,V] because:
+[info] type parameters weren't correctly instantiated outside of the implicit tree: inferred type arguments [String :: Boolean :: Int :: Int :: shapeless.HNil,Nothing] do not conform to method materializeCoproduct's type parameter bounds [V <: shapeless.Coproduct,R <: shapeless.Coproduct]
+[info]   IceCreamV1("Sundae", 1, true).migrateTo[IceCreamV2c]
+[info]                                          ^
+[info] Icecream.scala:67:42: shapeless.this.LabelledGeneric.materializeCoproduct is not a valid implicit value for shapeless.LabelledGeneric.Aux[Icecream.IceCreamV2c,BRepr] because:
+[info] hasMatchingSymbol reported error: could not find implicit value for parameter gen: shapeless.Generic.Aux[Icecream.IceCreamV2c,V]
+[info]   IceCreamV1("Sundae", 1, true).migrateTo[IceCreamV2c]
+[info]                                          ^
+[info] Icecream.scala:67:42: hlist.this.Prepend.hnilPrepend1 is not a valid implicit value for shapeless.ops.hlist.Prepend.Aux[shapeless.labelled.FieldType[Symbol @@ String("numWaffles"),Int] :: shapeless.ops.hlist.ZipWithKeys.hnilZipWithKeys.Out,shapeless.labelled.FieldType[Symbol @@ String("name"),String] :: shapeless.labelled.FieldType[Symbol @@ String("numCherries"),Int] :: shapeless.labelled.FieldType[Symbol @@ String("inCone"),Boolean] :: shapeless.HNil,Unaligned] because:
+[info] typing TypeApply reported errors for the implicit tree: type arguments [shapeless.labelled.FieldType[Symbol @@ String("numWaffles"),Int] :: shapeless.ops.hlist.ZipWithKeys.hnilZipWithKeys.Out,shapeless.labelled.FieldType[Symbol @@ String("name"),String] :: shapeless.labelled.FieldType[Symbol @@ String("numCherries"),Int] :: shapeless.labelled.FieldType[Symbol @@ String("inCone"),Boolean] :: shapeless.HNil] do not conform to method hnilPrepend1's type parameter bounds [P <: shapeless.HNil,S <: shapeless.HList]
+[info]   IceCreamV1("Sundae", 1, true).migrateTo[IceCreamV2c]
+[info]                                          ^
+[info] Icecream.scala:67:42: hlist.this.Prepend.hnilPrepend0 is not a valid implicit value for shapeless.ops.hlist.Prepend.Aux[shapeless.labelled.FieldType[Symbol @@ String("numWaffles"),Int] :: shapeless.ops.hlist.ZipWithKeys.hnilZipWithKeys.Out,shapeless.labelled.FieldType[Symbol @@ String("name"),String] :: shapeless.labelled.FieldType[Symbol @@ String("numCherries"),Int] :: shapeless.labelled.FieldType[Symbol @@ String("inCone"),Boolean] :: shapeless.HNil,Unaligned] because:
+[info] typing TypeApply reported errors for the implicit tree: type arguments [shapeless.labelled.FieldType[Symbol @@ String("numWaffles"),Int] :: shapeless.ops.hlist.ZipWithKeys.hnilZipWithKeys.Out,shapeless.labelled.FieldType[Symbol @@ String("name"),String] :: shapeless.labelled.FieldType[Symbol @@ String("numCherries"),Int] :: shapeless.labelled.FieldType[Symbol @@ String("inCone"),Boolean] :: shapeless.HNil] do not conform to method hnilPrepend0's type parameter bounds [P <: shapeless.HList,S <: shapeless.HNil]
+[info]   IceCreamV1("Sundae", 1, true).migrateTo[IceCreamV2c]
+[info]                                          ^
+[info] Icecream.scala:67:42: hlist.this.Remove.recurse is not a valid implicit value for shapeless.ops.hlist.Remove.Aux[shapeless.labelled.FieldType[Symbol @@ String("numCherries"),Int] :: shapeless.HNil,shapeless.labelled.FieldType[Symbol @@ String("numCherries"),Int],(shapeless.labelled.FieldType[Symbol @@ String("numCherries"),Int], OutT)] because:
+[info] hasMatchingSymbol reported error: could not find implicit value for parameter r: shapeless.ops.hlist.Remove.Aux[shapeless.HNil,shapeless.labelled.FieldType[Symbol @@ String("numCherries"),Int],(shapeless.labelled.FieldType[Symbol @@ String("numCherries"),Int], OutT)]
+[info]   IceCreamV1("Sundae", 1, true).migrateTo[IceCreamV2c]
+[info]                                          ^
+[info] Icecream.scala:67:42: hlist.this.Remove.recurse is not a valid implicit value for shapeless.ops.hlist.Remove.Aux[shapeless.labelled.FieldType[Symbol @@ String("numWaffles"),Int] :: shapeless.HNil,shapeless.labelled.FieldType[Symbol @@ String("numWaffles"),Int],(shapeless.labelled.FieldType[Symbol @@ String("numWaffles"),Int], R)] because:
+[info] hasMatchingSymbol reported error: could not find implicit value for parameter r: shapeless.ops.hlist.Remove.Aux[shapeless.HNil,shapeless.labelled.FieldType[Symbol @@ String("numWaffles"),Int],(shapeless.labelled.FieldType[Symbol @@ String("numWaffles"),Int], OutT)]
+[info]   IceCreamV1("Sundae", 1, true).migrateTo[IceCreamV2c]
 ```
 The full code is as following:
 
@@ -91,8 +136,6 @@ The full code is as following:
     }
 
   implicit val hnilMonoid: Monoid[HNil] = createMonoid[HNil](HNil)((x, y) => HNil)
-
-  implicit val intMonoid: Monoid[Int] = createMonoid[Int](0)((x, y) => x + y)
 
   implicit def emptyHList[K <: Symbol, H, T <: HList](
      implicit
@@ -128,8 +171,10 @@ The full code is as following:
   IceCreamV1("Sundae", 1, true).migrateTo[IceCreamV2b]
   // res15: IceCreamV2b = IceCreamV2b(Sundae,true,1)
 
-  IceCreamV1("Sundae", 1, true).migrateTo[IceCreamV2c]
+  IceCreamV1("Sundae", 1, true).migrateTo[IceCreamV2c] // <- fails as implicit can not be found
   // res16: IceCreamV2c = IceCreamV2c(Sundae,true,1,0)
 ```
+
+[1]: https://books.underscore.io/shapeless-guide/shapeless-guide.html
 
 [1]: https://books.underscore.io/shapeless-guide/shapeless-guide.html

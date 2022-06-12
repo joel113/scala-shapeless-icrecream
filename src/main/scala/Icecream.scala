@@ -11,6 +11,21 @@ object Icecream {
   case class IceCreamV2b(name: String, inCone: Boolean, numCherries: Int)
   case class IceCreamV2c(name: String, inCone: Boolean, numCherries: Int, numWaffles: Int)
 
+  case class SameA(a: String, b: Int, c: Boolean)
+  case class SameB(a: String, b: Int, c: Boolean)
+
+  case class DropFieldA(a: String, b: Int, c: Boolean)
+  case class DropFieldB(a: String, c: Boolean)
+
+  case class AddFieldA(a: String)
+  case class AddFieldB(a: String, z: Int)
+
+  case class ReorderA(a: String, z: Int)
+  case class ReorderB(z: Int, a: String)
+
+  case class KitchenSinkA(a: String, b: Int, c: Boolean)
+  case class KitchenSinkB(c: Boolean, z: Option[String], a: String)
+
   trait Migration[A, B] {
     def apply(a: A): B
   }
@@ -27,8 +42,6 @@ object Icecream {
     }
 
   implicit val hnilMonoid: Monoid[HNil] = createMonoid[HNil](HNil)((x, y) => HNil)
-
-  implicit val intMonoid: Monoid[Int] = createMonoid[Int](0)((x, y) => x + y)
 
   implicit def emptyHList[K <: Symbol, H, T <: HList](
      implicit
@@ -66,6 +79,12 @@ object Icecream {
 
   IceCreamV1("Sundae", 1, true).migrateTo[IceCreamV2c]
   // res16: IceCreamV2c = IceCreamV2c(Sundae,true,1,0)
+
+  print(SameA("abc", 123, true).migrateTo[SameB])
+  print(DropFieldA("abc", 123, true).migrateTo[DropFieldB])
+  print(AddFieldA("abc").migrateTo[AddFieldB])
+  print(ReorderA("abc", 123).migrateTo[ReorderB])
+  print(KitchenSinkA("abc", 123, true).migrateTo[KitchenSinkB])
 
   def main(args: Array[String]): Unit = {
     println("Hello world!")
